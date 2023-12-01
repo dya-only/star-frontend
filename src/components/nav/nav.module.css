@@ -15,7 +15,6 @@ a {
 }
 
 nav {
-  color: white;
   position: fixed;
   z-index: 100;
   width: 100vw;
@@ -36,7 +35,7 @@ nav {
 }
 
 .navItems {
-  width: 200px;
+  width: 230px;
   display: flex;
   justify-content: space-between;
   align-content: center;
@@ -45,6 +44,90 @@ nav {
 .navItem {
   cursor: pointer;
 }
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+.windowContainer {
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+  position: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  backdrop-filter: blur(10px);
+}
+
+.window {
+  width: 380px;
+  height: 260px;
+  border-radius: 20px;
+  background: white;
+  color: black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 10px 35px -3px rgba(0,0,0,0.1);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.windowInput {
+  font-family: 'Onest', sans-serif;
+
+  width: 218px;
+  height: 40px; 
+  border-radius: 20px;
+  border: solid 1px rgb(236, 236, 236);
+  outline: none;
+  background: white;
+  color: black;
+  margin: 4px 0;
+  padding-left: 20px;
+  transition: border .3s;
+}
+.windowInput:focus {
+  border: solid 1px #006aff;
+  transition: border .3s;
+}
+.windowInput::placeholder {
+  color: rgb(87, 87, 87);
+}
+
+.windowButton {
+  width: 240px;
+  height: 40px;
+  background: #006aff;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.windowWhy {
+  width: 238px;
+  text-align: end;
+  font-size: 14px;
+  color: #006aff;
+}
+
 
 @media (width > 1200px) {
   .container {
