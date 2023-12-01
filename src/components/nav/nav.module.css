@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'Junegull';
+  src: url(../../assets/fonts/junegull.ttf);
+}
+
+a {
+  all: unset;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  color: white;
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  height: 120px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all .5s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navTitle {
+  cursor: pointer;
+  font-family: 'Junegull';
+  font-size: 24px;
+}
+
+.navItems {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.navItem {
+  cursor: pointer;
+}
+
+@media (width > 1200px) {
+  .container {
+      width: 1200px;
+  }
+}
+@media (width < 1200px) {
+  .navTitle {
+    margin-left: 60px;
+  }
+
+  .navItems {
+    margin-right: 60px;
+  }
+}
+
+@media(width < 400px) {
+  nav > .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .navItems {
+    display: none;
+  }
+
+  .navTitle {
+    margin-left: -5px;
+  }
+}
