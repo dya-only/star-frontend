@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import style from './mainpage.module.css'
+import Footer from '../../components/footer/footer'
 
 import BG from '../../assets/imgs/card.webp'
 import Ranking from '../../assets/imgs/ranking.svg'
@@ -36,6 +37,8 @@ export default function Mainpage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </Fragment>
   )
 }

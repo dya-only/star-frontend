@@ -50,6 +50,13 @@ nav {
   height: 18px;
 }
 
+.profileImg {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  margin-top: -4px;
+}
+
 .windowContainer {
   width: 100vw;
   height: 100vh;
@@ -60,12 +67,12 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
   backdrop-filter: blur(10px);
 }
 
 .window {
-  width: 380px;
+  width: 340px;
   height: 260px;
   border-radius: 20px;
   background: white;
@@ -75,7 +82,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 10px 35px -3px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 35px -3px rgba(0, 0, 0, 0.1);
 }
 
 form {
@@ -89,7 +96,7 @@ form {
   font-family: 'Onest', sans-serif;
 
   width: 218px;
-  height: 40px; 
+  height: 40px;
   border-radius: 20px;
   border: solid 1px rgb(236, 236, 236);
   outline: none;
@@ -99,10 +106,12 @@ form {
   padding-left: 20px;
   transition: border .3s;
 }
+
 .windowInput:focus {
   border: solid 1px #006aff;
   transition: border .3s;
 }
+
 .windowInput::placeholder {
   color: rgb(87, 87, 87);
 }
@@ -121,19 +130,70 @@ form {
   cursor: pointer;
 }
 
-.windowWhy {
+.windowUp {
   width: 238px;
   text-align: end;
   font-size: 14px;
   color: #006aff;
+  cursor: pointer;
+}
+
+.errContainer {
+  transform: translateY(-100px);
+  transition: all .7s;
+
+  z-index: 300;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+.err {
+  margin-top: 40px;
+  padding: 12px;
+  background: white;
+  box-shadow: 0px 10px 35px -3px rgba(0, 0, 0, 0.1);
+
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.checkIcon {
+  position: absolute;
+  font-size: 16px;
+  color: white;
+}
+
+.checkBg {
+  width: 25px;
+  height: 25px;
+  background: rgb(255, 100, 100);
+  border-radius: 50px;
+}
+
+.errMsg {
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
 }
 
 
 @media (width > 1200px) {
   .container {
-      width: 1200px;
+    width: 1200px;
   }
 }
+
 @media (width < 1200px) {
   .navTitle {
     margin-left: 60px;
@@ -145,11 +205,11 @@ form {
 }
 
 @media(width < 400px) {
-  nav > .container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  nav>.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .navItems {

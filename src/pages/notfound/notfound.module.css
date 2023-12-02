@@ -1,0 +1,14 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: black;
+  font-family: 'Onest';
+  font-weight: 800;
+  font-size: 60px;
+}

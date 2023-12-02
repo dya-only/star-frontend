@@ -1,9 +1,9 @@
-import './App.css'
-import { Route, Routes } from 'react-router-dom'
-import Mainpage from './pages/mainpage/mainpage'
-import Nav from './components/nav/nav'
 import { Fragment } from 'react'
-import Footer from './components/footer/footer'
+import { Route, Routes } from 'react-router-dom'
+import './App.css'
+import Nav from './components/nav/nav'
+import Mainpage from './pages/mainpage/mainpage'
+import NotFound from './pages/notfound/notfound'
 
 function App() {
   return (
@@ -11,11 +11,9 @@ function App() {
       <Nav />
 
       <Routes>
-
         <Route element={<Mainpage />} path='/' />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
-
-      <Footer />
     </Fragment>
   )
 }
