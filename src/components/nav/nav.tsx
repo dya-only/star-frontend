@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 import Default from '../../assets/imgs/default.png'
 
-export default function Nav() {
+export default function Nav(props: { type: string }) {
   const [status, setStatus] = useState<string>('')
   const [user, setUser] = useState({
     email: '',
@@ -57,6 +57,23 @@ export default function Nav() {
 
   const navAnimation = () => {
     const nav = document.querySelector('nav')!
+
+    nav.style.background = 'transparent'
+    nav.style.height = '120px'
+    nav.style.color = 'white'
+    nav.style.backdropFilter = 'none'
+    nav.style.borderBottom = 'none'
+
+    if (props.type === 'contain') {
+      setTimeout(() => {
+        nav.style.background = 'rgba(255, 255, 255, 0.9)'
+        nav.style.height = '80px'
+        nav.style.color = 'black'
+        nav.style.backdropFilter = 'blur(20px)'
+        nav.style.borderBottom = 'solid 1px #f7f7f7'
+      }, 10)
+      return
+    }
 
     window.addEventListener('scroll', () => {
       if (window.scrollY > 200) {
@@ -169,10 +186,10 @@ export default function Nav() {
         <div className={style.msg}>
           <div className={style.checkContainer}>
             <FontAwesomeIcon className={style.checkIcon} icon={msgValue.status ? faCheck : faXmark} />
-            <div className={style.checkBg} style={ msgValue.status ? { background: '#7fec91' } : { background: 'rgb(255, 100, 100)' }} />
+            <div className={style.checkBg} style={msgValue.status ? { background: '#7fec91' } : { background: 'rgb(255, 100, 100)' }} />
           </div>
 
-          <div className={style.msgText}>{ msgValue.value }</div>
+          <div className={style.msgText}>{msgValue.value}</div>
         </div>
       </div>
 
@@ -210,9 +227,9 @@ export default function Nav() {
 
       <nav>
         <div className={style.container}>
-          <a className={style.navTitle} href="/">Star</a>
+          <Link className={style.navTitle} to={'/'}>Star</Link>
           <div className={style.navItems}>
-            <div className={style.navItem}>메인</div>
+            <Link className={style.navItem} to={'/'}>메인</Link>
             <Link className={style.navItem} to={'/ranking'}>랭킹</Link>
             <div className={style.navItem}>비교</div>
             <div ref={loginRef} className={style.navItem} onClick={windowController}>

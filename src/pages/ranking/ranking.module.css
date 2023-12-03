@@ -12,7 +12,7 @@ a {
   color: black;
   font-family: 'Noto Sans KR';
 
-  padding-top: 100px;
+  padding-top: 200px;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -23,6 +23,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin-bottom: 60px;
 }
 
 .menuItem {
@@ -40,11 +41,121 @@ a {
   padding: 10px 20px 8px 20px;
   border-radius: 30px;
   display: flex;
+  cursor: pointer;
+}
+.menuBtnDisable {
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: #006aff3d;
+  color: white;
+  padding: 10px 20px 8px 20px;
+  border-radius: 30px;
+  display: flex;
+}
+
+.graphContainer {
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.graphImg {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 60px;
+  margin-right: -45px;
+  z-index: 10;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.graph {
+  width: 0%;
+  height: 50px;
+  border-radius: 30px;
+  background: rgb(69,133,252);
+  background: linear-gradient(90deg, rgba(69,133,252,1) 0%, rgba(0,204,255,1) 100%); 
+  transition: width 1s;
+}
+
+.graphN {
+  font-family: 'Onest';
+  font-weight: 800;
+  font-size: 16px;
+  color: rgba(0,204,255,1);
+  margin-left: 12px;
+}
+
+.msgContainer {
+  transform: translateY(-100px);
+  transition: all .7s;
+
+  z-index: 300;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+}
+
+.msg {
+  margin-top: 40px;
+  padding: 12px;
+  background: white;
+  box-shadow: 0px 10px 35px -3px rgba(0, 0, 0, 0.1);
+
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.checkIcon {
+  position: absolute;
+  font-size: 16px;
+}
+
+.checkBg {
+  width: 25px;
+  height: 25px;
+  background: rgb(66, 145, 255);
+  border-radius: 50px;
+}
+
+.msgProgress {
+  width: 80px;
+  height: 10px;
+  background: rgb(240, 240, 240);
+  border-radius: 30px;
+}
+
+.msgProgressLine {
+  width: 0%;
+  height: 100%;
+  background: rgb(66, 145, 255);
+  border-radius: 30px;
+
+  transition: all .8s;
 }
 
 
 @media (width > 1200px) {
   .container {
     width: 1200px;
+  }
+}
+
+@media (width < 1200px) {
+  .container {
+    padding: 0 20px;
   }
 }

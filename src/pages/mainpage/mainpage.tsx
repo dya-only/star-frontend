@@ -10,7 +10,7 @@ import Nav from '../../components/nav/nav'
 export default function Mainpage() {
   return (
     <Fragment>
-      <Nav />
+      <Nav type='main' />
 
       <div className={style.bgContainer}>
         <img className={style.bg} src={BG} alt="" />

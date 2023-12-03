@@ -13,10 +13,14 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@types/cheerio": "^0.22.35",
+    "@types/superagent": "^4.1.24",
     "axios": "^1.6.2",
+    "cheerio": "^1.0.0-rc.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.20.0"
+    "react-router-dom": "^6.20.0",
+    "superagent": "^8.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",

@@ -243,12 +243,8 @@ form {
 }
 
 @media (width < 1200px) {
-  .navTitle {
-    margin-left: 60px;
-  }
-
-  .navItems {
-    margin-right: 60px;
+  .container {
+    padding: 0 20px;
   }
 }
 
