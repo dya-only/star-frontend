@@ -1,13 +1,13 @@
 import { ChangeEvent, FormEvent, Fragment, useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faRightToBracket, faXmark } from '@fortawesome/free-solid-svg-icons'
-import style from './nav.module.css'
+import style from './nav2.module.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import Default from '../../assets/imgs/default.png'
 
-export default function Nav() {
+export default function Nav2() {
   const [status, setStatus] = useState<string>('')
   const [user, setUser] = useState({
     email: '',
@@ -36,7 +36,6 @@ export default function Nav() {
 
   useEffect(() => {
     verify()
-    navAnimation()
   }, [])
 
   const verify = () => {
@@ -52,30 +51,6 @@ export default function Nav() {
     }).catch(_ => {
       loginRef.current?.style.setProperty('display', 'block')
       profileRef.current?.style.setProperty('display', 'none')
-    })
-  }
-
-  const navAnimation = () => {
-    const nav = document.querySelector('nav')!
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 200) {
-        nav.style.background = 'rgba(255, 255, 255, 0.9)'
-        nav.style.height = '80px'
-        nav.style.color = 'black'
-        nav.style.backdropFilter = 'blur(20px)'
-      } else {
-        nav.style.background = 'transparent'
-        nav.style.height = '120px'
-        nav.style.color = 'white'
-        nav.style.backdropFilter = 'none'
-      }
-
-      if (window.scrollY > 500) {
-        nav.style.borderBottom = 'solid 1px #f7f7f7'
-      } else {
-        nav.style.borderBottom = 'none'
-      }
     })
   }
 

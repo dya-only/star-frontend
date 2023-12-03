@@ -5,10 +5,13 @@ import Footer from '../../components/footer/footer'
 import BG from '../../assets/imgs/card.webp'
 import Ranking from '../../assets/imgs/ranking.svg'
 import Compare from '../../assets/imgs/compare.svg'
+import Nav from '../../components/nav/nav'
 
 export default function Mainpage() {
   return (
     <Fragment>
+      <Nav />
+
       <div className={style.bgContainer}>
         <img className={style.bg} src={BG} alt="" />
         <div className={style.title}>GBSW<br/>깃허브 스타 랭킹 서비스</div>

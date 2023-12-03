@@ -1,0 +1,50 @@
+a {
+  all: unset;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.rankingContainer {
+  color: black;
+  font-family: 'Noto Sans KR';
+
+  padding-top: 100px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.menuItem {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.menuBtn {
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: #006aff;
+  color: white;
+  padding: 10px 20px 8px 20px;
+  border-radius: 30px;
+  display: flex;
+}
+
+
+@media (width > 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
