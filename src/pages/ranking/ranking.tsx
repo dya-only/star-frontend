@@ -1,6 +1,5 @@
 import { Fragment, useEffect, useRef, useState } from "react"
 import axios from "axios"
-import { Link } from "react-router-dom"
 import style from './ranking.module.css'
 import Nav from "../../components/nav/nav"
 
@@ -21,7 +20,7 @@ export default function Ranking() {
   const verify = () => {
     axios.get('/api/user/@me', {
       headers: {
-        'Authorization': sessionStorage.getItem('TOKEN')
+        'Authorization': localStorage.getItem('TOKEN')
       }
     }).then(resp => {
       if (resp.data.isRanking === 'true') setPlusStatus(false)
@@ -105,7 +104,7 @@ export default function Ranking() {
 
   const addAccount = async () => {
     const user = await axios.get('/api/user/@me', {
-      headers: { 'Authorization': sessionStorage.getItem('TOKEN') }
+      headers: { 'Authorization': localStorage.getItem('TOKEN') }
     })
 
     const formData = new FormData()
@@ -148,9 +147,9 @@ export default function Ranking() {
 
           {ranking?.map((el: any, idx: number) => {
             return <div key={idx} className={style.graphContainer}>
-              <Link to={`/profile/${el.githubId}`} className={style.graphImg}>
+              <a href={`/profile/${el.githubId}`} target='_blank' className={style.graphImg}>
                 <img id={`${el.githubId}i`} className={style.graphImg} src={`https://avatars.githubusercontent.com/${el.githubId}`} />
-              </Link>
+              </a>
               <div id={el.githubId} className={style.graph} />
               <div className={style.graphWhite}></div>
               <a className={style.graphId} href={`https://github.com/`}>{ el.githubId }</a>

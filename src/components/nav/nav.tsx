@@ -42,7 +42,7 @@ export default function Nav(props: { type: string }) {
   const verify = () => {
     axios.get('/api/user/@me', {
       headers: {
-        'Authorization': sessionStorage.getItem('TOKEN')
+        'Authorization': localStorage.getItem('TOKEN')
       }
     }).then(resp => {
       setProfile(resp.data)
@@ -120,7 +120,7 @@ export default function Nav(props: { type: string }) {
         'Content-Type': 'application/json'
       }
     }).then(resp => {
-      sessionStorage.setItem('TOKEN', resp.data.token)
+      localStorage.setItem('TOKEN', resp.data.token)
       window.location.href = '/'
     }).catch(_ => {
       setMsgValue({ status: false, value: '이메일, 비밀번호를 확인해주세요.' })
@@ -171,7 +171,7 @@ export default function Nav(props: { type: string }) {
       setUploadImg(null)
       setSendImg(null)
     }).catch(_ => {
-      setMsgValue({ status: false, value: '문제가 발생하였습니다.' })
+      setMsgValue({ status: false, value: '이미 존재하는 이메일, 또는 깃허브아이디에요.' }) 
 
       msgRef.current?.style.setProperty('transform', 'translateY(0)')
       setTimeout(() => {
