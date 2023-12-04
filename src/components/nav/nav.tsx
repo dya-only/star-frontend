@@ -235,9 +235,9 @@ export default function Nav(props: { type: string }) {
             <div ref={loginRef} className={style.navItem} onClick={windowController}>
               <FontAwesomeIcon icon={faRightToBracket} className={style.icon} />
             </div>
-            <div ref={profileRef} className={style.navItem}>
-              <img ref={profileImgRef} className={style.profileImg} src={`/api/image/user/${profile.image}`} alt="" />
-            </div>
+              <div ref={profileRef} className={style.navItem}>
+                <img ref={profileImgRef} className={style.profileImg} src={`/api/image/user/${profile.image}`} alt="" onClick={() => window.location.href = `/profile/${profile.githubId}`} />
+              </div>
           </div>
         </div>
       </nav>
