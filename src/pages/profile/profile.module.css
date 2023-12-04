@@ -1,0 +1,56 @@
+a {
+  all: unset;
+}
+
+.profileContainer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  color: black;
+  padding-top: 200px;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile {
+  font-family: 'Onest';
+  display: flex;
+  align-items: center;
+}
+
+.profileImg {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 1000px;
+  margin-right: 40px;
+}
+
+.profileEmail {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.profileGithubId {
+  font-size: 40px;
+  font-weight: 800;
+  cursor: pointer;
+  color: #006aff;
+}
+
+
+@media (width > 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+@media (width < 1200px) {
+  .container {
+    margin: 0 20px;
+  }
+}

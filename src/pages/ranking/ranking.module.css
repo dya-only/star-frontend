@@ -70,6 +70,8 @@ a {
   margin-right: -45px;
   z-index: 10;
   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all .5s;
 }
 
 .graph {
@@ -79,6 +81,8 @@ a {
   background: rgb(69,133,252);
   background: linear-gradient(90deg, rgba(69,133,252,1) 0%, rgba(0,204,255,1) 100%); 
   transition: width 1s;
+  cursor: pointer;
+  
 }
 
 .graphN {
@@ -87,6 +91,19 @@ a {
   font-size: 16px;
   color: rgba(0,204,255,1);
   margin-left: 12px;
+}
+
+.graphWhite {
+  width: 200px;
+  height: 100%;
+  background: white;
+  position: absolute;
+  z-index: -9;
+}
+
+.graphId {
+  position: absolute;
+  z-index: -10;
 }
 
 .msgContainer {
