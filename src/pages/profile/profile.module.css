@@ -22,6 +22,12 @@ a {
   align-items: center;
 }
 
+.profileContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .profileImg {
   width: 300px;
   height: 300px;
@@ -40,6 +46,19 @@ a {
   font-weight: 800;
   cursor: pointer;
   color: #006aff;
+}
+
+.logout {
+  font-family: 'Noto Sans KR';
+  padding: 8px 20px;
+  border-radius: 30px;
+  background: rgb(255, 61, 61);
+  margin-top: 20px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  outline: none;
 }
 
 

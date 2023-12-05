@@ -35,6 +35,11 @@ export default function Profile() {
     })
   }
 
+  const logout = () => {
+    localStorage.removeItem('TOKEN')
+    window.location.href = '/'
+  }
+
   return (
     <Fragment>
       <Nav type='contain' />
@@ -43,9 +48,10 @@ export default function Profile() {
         <div className={style.container}>
           <div className={style.profile}>
             <img className={style.profileImg} src={`/api/image/user/${user.image}`} alt="" />
-            <div>
+            <div className={style.profileContentContainer}>
               <div className={style.profileEmail}>{ user.email }</div>
               <a className={style.profileGithubId} href={`https://github.com/${user.githubId}`} target='_blank'>{ user.githubId }</a>
+              <button className={style.logout} onClick={logout}>로그아웃</button>
             </div>
           </div>
         </div>
