@@ -6,6 +6,7 @@ import BG from '../../assets/imgs/card.webp'
 import Ranking from '../../assets/imgs/ranking.svg'
 import Compare from '../../assets/imgs/compare.svg'
 import Nav from '../../components/nav/nav'
+import { Link } from 'react-router-dom'
 
 export default function Mainpage() {
   return (
@@ -22,7 +23,7 @@ export default function Mainpage() {
         <div className={style.starter}>
           <div className={style.container}>
             <div className={style.starterText}>지금바로 자신의 깃허브 스타 랭킹을 확인해보세요</div>
-            <button className={style.btn}>바로가기</button>
+            <Link className={style.btn} to={'/ranking'}>바로가기</Link>
           </div>
         </div>
 

@@ -231,7 +231,7 @@ export default function Nav(props: { type: string }) {
           <div className={style.navItems}>
             <Link className={style.navItem} to={'/'}>메인</Link>
             <Link className={style.navItem} to={'/ranking'}>랭킹</Link>
-            <div className={style.navItem}>비교</div>
+            <div className={style.navItem}>VS</div>
             <div ref={loginRef} className={style.navItem} onClick={windowController}>
               <FontAwesomeIcon icon={faRightToBracket} className={style.icon} />
             </div>

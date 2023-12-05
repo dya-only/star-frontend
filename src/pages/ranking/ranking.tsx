@@ -6,6 +6,7 @@ import Nav from "../../components/nav/nav"
 export default function Ranking() {
   const [ranking, setRanking] = useState<string[]>([])
   const [plusStatus, setPlusStatus] = useState<boolean>(true)
+  let loginedId: string
   let progressWidth = 0
 
   const progressContainerRef = useRef<HTMLDivElement>(null)
@@ -24,6 +25,7 @@ export default function Ranking() {
       }
     }).then(resp => {
       if (resp.data.isRanking === 'true') setPlusStatus(false)
+      loginedId = resp.data.githubId
     }).catch(_ => {
       // navigate('/404')
       addBtn.current!.style.setProperty('display', 'none')
@@ -73,6 +75,9 @@ export default function Ranking() {
         const profile = document.getElementById(username + 'i') as HTMLElement
         const user = document.getElementById(username) as HTMLElement
         user.style.width = `${stars / 2.1}%`
+        if (username === loginedId) {
+          user.style.background = 'linear-gradient(90deg, rgba(0,255,136,1) 0%, rgba(0,245,255,1) 100%)'
+        }
 
         const userN = document.getElementById(username + 'n') as HTMLElement
         userN.innerText = resp.data
@@ -108,11 +113,9 @@ export default function Ranking() {
     })
 
     const formData = new FormData()
-    formData.append('email', user.data.email)
-    formData.append('githubId', user.data.githubId)
     formData.append('isRanking', 'true')
 
-    axios.patch(`/api/user/${user.data.id}`, formData, {
+    axios.put(`/api/user/${user.data.id}`, formData, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }

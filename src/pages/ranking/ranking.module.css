@@ -78,8 +78,7 @@ a {
   width: 0%;
   height: 50px;
   border-radius: 30px;
-  background: rgb(69,133,252);
-  background: linear-gradient(90deg, rgba(69,133,252,1) 0%, rgba(0,204,255,1) 100%); 
+  background: linear-gradient(90deg, rgb(29, 108, 255) 0%, rgba(0,204,255,1) 100%); 
   transition: width 1s;
   cursor: pointer;
   
