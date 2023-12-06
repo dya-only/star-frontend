@@ -51,7 +51,7 @@ export default function Profile() {
             <div className={style.profileContentContainer}>
               <div className={style.profileEmail}>{ user.email }</div>
               <a className={style.profileGithubId} href={`https://github.com/${user.githubId}`} target='_blank'>{ user.githubId }</a>
-              <button className={style.logout} onClick={logout}>로그아웃</button>
+              { localStorage.getItem('TOKEN') ? <button className={style.logout} onClick={logout}>로그아웃</button> : null }
             </div>
           </div>
         </div>
