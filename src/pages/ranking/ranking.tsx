@@ -74,7 +74,8 @@ export default function Ranking() {
 
         const profile = document.getElementById(username + 'i') as HTMLElement
         const user = document.getElementById(username) as HTMLElement
-        user.style.width = `${stars / 2.1}%`
+        user.style.width = `${stars * 5}px`
+
         if (username === loginedId) {
           user.style.background = 'linear-gradient(90deg, rgba(0,255,136,1) 0%, rgba(0,245,255,1) 100%)'
         }
@@ -154,8 +155,6 @@ export default function Ranking() {
                 <img id={`${el.githubId}i`} className={style.graphImg} src={`https://avatars.githubusercontent.com/${el.githubId}`} />
               </a>
               <div id={el.githubId} className={style.graph} />
-              <div className={style.graphWhite}></div>
-              <a className={style.graphId} href={`https://github.com/`}>{ el.githubId }</a>
               <div id={`${el.githubId}n`} className={style.graphN} />
             </div>
           })}

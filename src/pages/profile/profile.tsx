@@ -9,35 +9,57 @@ export default function Profile() {
   const navigate = useNavigate()
   
   const [user, setUser] = useState({
+    id: 0,
     email: '',
     githubId: '',
     image: ''
   })
+  const [isMyProfile, setIsMyProfile] = useState<boolean>(false)
 
   useEffect(() => {
     verify()
   }, [])
 
   const verify = () => {
+    axios.get('/api/user/@me', {
+      headers: {
+        'Authorization': localStorage.getItem('TOKEN')
+      }
+    }).then(resp => {
+      getUserInfo(resp.data.id)
+    }).catch(_ => {
+      getUserInfo(0)
+      if (!githubid)
+        navigate('/404')
+    })
+  }
+
+  const getUserInfo = (userId: number) => {
     axios.get(`/api/user/by-github/${githubid}`, {
       headers: {
-        'Authorization': sessionStorage.getItem('TOKEN')
+        'Authorization': localStorage.getItem('TOKEN')
       }
     }).then(resp => {
       setUser({
+        id: resp.data.id,
         email: resp.data.email,
         githubId: resp.data.githubId,
         image: resp.data.image
       })
-    }).catch(_ => {
-      if (!githubid)
-        navigate('/404')
+
+      if (resp.data.id === userId) {
+        setIsMyProfile(true)
+      }
     })
   }
 
   const logout = () => {
     localStorage.removeItem('TOKEN')
     window.location.href = '/'
+  }
+
+  const vs = () => {
+    navigate(`/vs/${user.githubId}`)
   }
 
   return (
@@ -51,7 +73,8 @@ export default function Profile() {
             <div className={style.profileContentContainer}>
               <div className={style.profileEmail}>{ user.email }</div>
               <a className={style.profileGithubId} href={`https://github.com/${user.githubId}`} target='_blank'>{ user.githubId }</a>
-              { localStorage.getItem('TOKEN') ? <button className={style.logout} onClick={logout}>로그아웃</button> : null }
+              { isMyProfile ? <button className={style.logout} onClick={logout}>로그아웃</button> : null }
+              { !isMyProfile ? <button className={style.vs} onClick={vs}>VS</button> : null }
             </div>
           </div>
         </div>

@@ -171,7 +171,7 @@ export default function Nav(props: { type: string }) {
       setUploadImg(null)
       setSendImg(null)
     }).catch(_ => {
-      setMsgValue({ status: false, value: '이미 존재하는 이메일, 또는 깃허브아이디에요.' }) 
+      setMsgValue({ status: false, value: '문제가 발생했어요.' }) 
 
       msgRef.current?.style.setProperty('transform', 'translateY(0)')
       setTimeout(() => {
@@ -231,7 +231,7 @@ export default function Nav(props: { type: string }) {
           <div className={style.navItems}>
             <Link className={style.navItem} to={'/'}>메인</Link>
             <Link className={style.navItem} to={'/ranking'}>랭킹</Link>
-            <Link className={style.navItem} to={'/vs'}>VS</Link>
+            <Link className={style.navItem} to={'/vs/hoit1011'}>VS</Link>
             <div ref={loginRef} className={style.navItem} onClick={windowController}>
               <FontAwesomeIcon icon={faRightToBracket} className={style.icon} />
             </div>

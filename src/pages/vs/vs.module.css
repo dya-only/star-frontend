@@ -1,0 +1,116 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchContainer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  color: black;
+  margin-bottom: 80px;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 68px -3px rgba(0,0,0,0.1);
+  padding: 16px 20px;
+  background: white;
+  border-radius: 30px;
+  border: solid 1px rgb(231, 231, 231);
+}
+
+.searchIcon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.searchBar {
+  width: 200px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  padding: 40px;
+  box-shadow: 0px 0px 68px -3px rgba(0,0,0,0.1);
+  border-radius: 30px;
+  border: solid 1px rgb(231, 231, 231);
+  color: black;
+}
+
+.profileImg {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.info {
+  font-family: 'Onest';
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.infoTitle {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.githubId {
+  font-weight: 700;
+  color: #000000;
+}
+
+.icons {
+  margin: 0 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  font-size: 40px;
+  color: #006aff;
+}
+
+.win {
+  color: #006aff;
+  font-weight: 800;
+}
+.lose {
+  color: #006aff76;
+  font-weight: 600;
+}
+
+
+@media (width > 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}

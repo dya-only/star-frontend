@@ -175,3 +175,27 @@ a {
     padding: 0 20px;
   }
 }
+
+@media (width < 600px) {
+  .menuItem {
+    margin-bottom: 20px;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    margin-left: -20px;
+  }
+
+  .graphImg {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -10px;
+    box-shadow: none;
+  }
+
+  .graph {
+    max-width: 300px;
+    margin-left: -20px;
+  }
+}

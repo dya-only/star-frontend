@@ -249,7 +249,7 @@ form {
   }
 }
 
-@media(width < 400px) {
+/* @media(width < 400px) {
   nav>.container {
     width: 100%;
     display: flex;
@@ -264,4 +264,4 @@ form {
   .navTitle {
     margin-left: -5px;
   }
-}
+} */

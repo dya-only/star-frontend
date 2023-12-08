@@ -52,13 +52,27 @@ a {
   font-family: 'Noto Sans KR';
   padding: 8px 20px;
   border-radius: 30px;
-  background: rgb(255, 61, 61);
+  background: rgb(255, 81, 81);
   margin-top: 20px;
   color: white;
   font-weight: 700;
   font-size: 16px;
   border: none;
   outline: none;
+}
+
+.vs {
+  font-family: 'Noto Sans KR';
+  padding: 8px 20px;
+  border-radius: 30px;
+  background: #006aff;
+  margin-top: 20px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 
@@ -71,5 +85,19 @@ a {
 @media (width < 1200px) {
   .container {
     margin: 0 20px;
+  }
+}
+
+@media (width < 600px) {
+  .profile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profileImg {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 0 0 40px 0;
   }
 }
