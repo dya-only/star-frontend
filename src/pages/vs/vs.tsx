@@ -120,6 +120,8 @@ export default function Vs() {
               <div className={u.stars > me.stars ? style.win : style.lose}>{u.stars}</div>
             </div>
           </div>
+
+          <div className={style.gap}></div>
         </div>
       </div>
     </Fragment>
