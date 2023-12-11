@@ -35,6 +35,10 @@ a {
   border-radius: 1000px;
   margin-right: 40px;
 }
+.profileImg:hover {
+  filter: brightness(70%);
+  cursor: pointer;
+}
 
 .profileEmail {
   font-size: 20px;
@@ -72,6 +76,60 @@ a {
   font-size: 16px;
   border: none;
   outline: none;
+  cursor: pointer;
+}
+
+.updateWindowContainer {
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.updateWindow {
+  padding: 0 40px;
+  background: white;
+  border-radius: 30px;
+  box-shadow: 0px 6px 50px -3px rgba(0,0,0,0.1);
+  border: solid 1px rgb(240, 240, 240);
+}
+
+.inputContainer {
+  color: black;
+  margin: 40px 0;
+}
+
+.inputTag {
+  font-family: 'Noto Sans KR';
+  font-size: 14px;
+  margin-left: 10px;
+  margin-bottom: 4px;
+}
+
+.input {
+  width: 200px;
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 25px;
+  outline: none;
+  border: solid 1px rgb(238, 238, 238);
+}
+
+.updateBtn {
+  width: 240px;
+  height: 50px;
+  margin-bottom: 40px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  background: #006aff;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
 }
 
