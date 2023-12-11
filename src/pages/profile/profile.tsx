@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, FormEvent, Fragment, HTMLInputTypeAttribute, useEffect, useState } from 'react'
+import { ChangeEvent, FormEvent, Fragment, useEffect, useState } from 'react'
 import style from './profile.module.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
@@ -90,7 +90,7 @@ export default function Profile() {
     <Fragment>
       <Nav type='contain' />
 
-      {isUpdateWindow ?
+      {isUpdateWindow && isMyProfile ?
         <div className={style.updateWindowContainer}>
           <form onSubmit={updateSubmit}>
             <div className={style.updateWindow}>

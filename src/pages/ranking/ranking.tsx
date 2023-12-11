@@ -3,20 +3,48 @@ import axios from "axios"
 import style from './ranking.module.css'
 import Nav from "../../components/nav/nav"
 
+import Github from '../../assets/imgs/github.png'
+
 export default function Ranking() {
   const [ranking, setRanking] = useState<string[]>([])
   const [plusStatus, setPlusStatus] = useState<boolean>(true)
+  const [loadingText, setLoadingText] = useState<string>('LOADING')
   let loginedId: string
   let progressWidth = 0
 
   const progressContainerRef = useRef<HTMLDivElement>(null)
   const progressRef = useRef<HTMLDivElement>(null)
   const addBtn = useRef<HTMLButtonElement>(null)
+  const githubLogo = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
     verify()
     getRanking()
+    loading()
+    rotate()
   }, [])
+  
+  const loading = () => {
+    let count = 2
+    setInterval(() => {
+      if (count === 1) setLoadingText('LOADING')
+      if (count === 2) setLoadingText('LOADING.')
+      if (count === 3) setLoadingText('LOADING..')
+      if (count === 4) {
+        setLoadingText('LOADING...')
+        count = 0
+      }
+      count++
+    }, 500)
+  }
+
+  const rotate = () => {
+    let cos = 0
+    setInterval(() => cos += 0.05, 10)
+    setInterval(() => {
+      githubLogo.current?.style.setProperty('transform', `rotate(${Math.cos(cos) * 10}deg)`)
+    }, 1)
+  }
 
   const verify = () => {
     axios.get('/api/user/@me', {
@@ -27,7 +55,6 @@ export default function Ranking() {
       if (resp.data.isRanking === 'true') setPlusStatus(false)
       loginedId = resp.data.githubId
     }).catch(_ => {
-      // navigate('/404')
       addBtn.current!.style.setProperty('display', 'none')
     })
   }
@@ -45,13 +72,15 @@ export default function Ranking() {
 
           for (let j = i + 1; j < ranking.length; j++) {
             let a = await getStars(ranking[j].githubId)
+            progressWidth += 5.5 / (ranking.length - 1)
+            progressRef.current!.style.setProperty('width', `${progressWidth.toString()}%`)
             let b = await getStars(ranking[least].githubId)
+            progressWidth += 5.5 / (ranking.length - 1)
+            progressRef.current!.style.setProperty('width', `${progressWidth.toString()}%`)
 
             if (a < b)
               least = j
           }
-          progressWidth += 50 / (ranking.length - 1)
-          progressRef.current!.style.setProperty('width', `${progressWidth.toString()}%`)
 
           if (i != least) {
             let tmp = ranking[i]
@@ -158,6 +187,13 @@ export default function Ranking() {
               <div id={`${el.githubId}n`} className={style.graphN} />
             </div>
           })}
+
+          { ranking.length === 0 ?
+            <div className={style.loadingContainer}>
+              <img className={style.loadingImg} src={Github} alt="" ref={githubLogo} />
+              <div className={style.loadingText}>{ loadingText }</div>
+            </div>
+          : null }
         </div>
       </div>
     </Fragment>

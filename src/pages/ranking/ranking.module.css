@@ -163,6 +163,28 @@ a {
   transition: all .8s;
 }
 
+.loadingContainer {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 20%;
+}
+
+.loadingImg {
+  width: 300px;
+  transition: rotate .3s;
+}
+
+.loadingText {
+  font-family: 'Onest';
+  font-size: 30px;
+  font-weight: bold;
+  color: #006aff;
+}
+
 
 @media (width > 1200px) {
   .container {
