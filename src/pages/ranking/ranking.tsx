@@ -23,7 +23,7 @@ export default function Ranking() {
     loading()
     rotate()
   }, [])
-  
+
   const loading = () => {
     let count = 2
     setInterval(() => {
@@ -40,7 +40,7 @@ export default function Ranking() {
 
   const rotate = () => {
     let cos = 0
-    setInterval(() => cos += 0.05, 10)
+    setInterval(() => cos += 0.02, 10)
     setInterval(() => {
       githubLogo.current?.style.setProperty('transform', `rotate(${Math.cos(cos) * 10}deg)`)
     }, 1)
@@ -68,15 +68,14 @@ export default function Ranking() {
 
         let least
         for (let i = 0; i < ranking.length - 1; i++) {
+          progressWidth += 50 / (ranking.length - 1)
+          progressRef.current!.style.setProperty('width', `${progressWidth.toString()}%`)
+
           least = i;
 
           for (let j = i + 1; j < ranking.length; j++) {
             let a = await getStars(ranking[j].githubId)
-            progressWidth += 5.5 / (ranking.length - 1)
-            progressRef.current!.style.setProperty('width', `${progressWidth.toString()}%`)
             let b = await getStars(ranking[least].githubId)
-            progressWidth += 5.5 / (ranking.length - 1)
-            progressRef.current!.style.setProperty('width', `${progressWidth.toString()}%`)
 
             if (a < b)
               least = j
@@ -88,7 +87,7 @@ export default function Ranking() {
             ranking[least] = tmp
           }
         }
-        
+
         for (let i = ranking.length - 1; i >= 0; i--) {
           setRanking(prev => [...prev, ranking[i]])
           getGithubUser(ranking[i].githubId, ranking.length)
@@ -188,12 +187,12 @@ export default function Ranking() {
             </div>
           })}
 
-          { ranking.length === 0 ?
+          {ranking.length === 0 ?
             <div className={style.loadingContainer}>
               <img className={style.loadingImg} src={Github} alt="" ref={githubLogo} />
-              <div className={style.loadingText}>{ loadingText }</div>
+              <div className={style.loadingText}>{loadingText}</div>
             </div>
-          : null }
+            : null}
         </div>
       </div>
     </Fragment>
